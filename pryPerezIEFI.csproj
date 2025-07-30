@@ -48,70 +48,92 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAdministrador.cs">
+    <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Formularios\frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdministrador.Designer.cs">
+    <Compile Include="Formularios\frmAdministrador.Designer.cs">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAuditoria.cs">
+    <Compile Include="Formularios\frmAuditoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAuditoria.Designer.cs">
+    <Compile Include="Formularios\frmAuditoria.Designer.cs">
       <DependentUpon>frmAuditoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStock.cs">
+    <Compile Include="Formularios\frmStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStock.Designer.cs">
+    <Compile Include="Formularios\frmStock.Designer.cs">
       <DependentUpon>frmStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLoguin.cs">
+    <Compile Include="Formularios\frmLoguin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLoguin.Designer.cs">
+    <Compile Include="Formularios\frmLoguin.Designer.cs">
       <DependentUpon>frmLoguin.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoguinIEFIDataSet.cs">
-      <DependentUpon>LoguinIEFIDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="LoguinIEFIDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoguinIEFIDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="frmMenuPrincipal.cs">
+    <Compile Include="Formularios\frmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenuPrincipal.Designer.cs">
+    <Compile Include="Formularios\frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoguinIEFIDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoguinIEFIDataSet1.xsd</DependentUpon>
+    <Compile Include="Clases\Procesos.cs" />
+    <Compile Include="Formularios\frmTareaNueva.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoguinIEFIDataSetFinal.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoguinIEFIDataSetFinal.xsd</DependentUpon>
+    <Compile Include="Formularios\frmTareaNueva.Designer.cs">
+      <DependentUpon>frmTareaNueva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmModificarTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmModificarTareas.Designer.cs">
+      <DependentUpon>frmModificarTareas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmVerTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmVerTareas.Designer.cs">
+      <DependentUpon>frmVerTareas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmReclamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmReclamos.Designer.cs">
+      <DependentUpon>frmReclamos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAdministrador.resx">
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Clases\SesionUsuario.cs" />
+    <EmbeddedResource Include="Formularios\frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAuditoria.resx">
+    <EmbeddedResource Include="Formularios\frmAuditoria.resx">
       <DependentUpon>frmAuditoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStock.resx">
+    <EmbeddedResource Include="Formularios\frmModificarTareas.resx">
+      <DependentUpon>frmModificarTareas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmStock.resx">
       <DependentUpon>frmStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLoguin.resx">
+    <EmbeddedResource Include="Formularios\frmLoguin.resx">
       <DependentUpon>frmLoguin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenuPrincipal.resx">
+    <EmbeddedResource Include="Formularios\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmTareaNueva.resx">
+      <DependentUpon>frmTareaNueva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmVerTareas.resx">
+      <DependentUpon>frmVerTareas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmReclamos.resx">
+      <DependentUpon>frmReclamos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,39 +144,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="LoguinIEFIDataSet.xsc">
-      <DependentUpon>LoguinIEFIDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LoguinIEFIDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LoguinIEFIDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LoguinIEFIDataSet.xss">
-      <DependentUpon>LoguinIEFIDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LoguinIEFIDataSet1.xsc">
-      <DependentUpon>LoguinIEFIDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LoguinIEFIDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LoguinIEFIDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LoguinIEFIDataSet1.xss">
-      <DependentUpon>LoguinIEFIDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="LoguinIEFIDataSetFinal.xsc">
-      <DependentUpon>LoguinIEFIDataSetFinal.xsd</DependentUpon>
-    </None>
-    <None Include="LoguinIEFIDataSetFinal.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LoguinIEFIDataSetFinal.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LoguinIEFIDataSetFinal.xss">
-      <DependentUpon>LoguinIEFIDataSetFinal.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -169,9 +158,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LoguinIEFI.accdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="LoguinIEFI.accdb" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

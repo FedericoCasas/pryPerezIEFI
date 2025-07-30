@@ -8,15 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.IO;
 
 
 namespace pryPerezIEFI
 {
     public partial class frmLoguin : Form
     {
-        OleDbConnection nuevaConeccion = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\LoguinIEFI.accdb");
+        //private string cadenaConexion = Conexion.ObtenerCadena();
+
+        OleDbConnection nuevaConeccion = new OleDbConnection(Conexion.ObtenerCadena());
         public static string dniUsuarioGlobal;
         public static DateTime horaInicioSesion;
+
         public frmLoguin()
         {
             InitializeComponent();
@@ -24,13 +28,20 @@ namespace pryPerezIEFI
             //textBox.MaxLength = 10;
             txtContraseña.MaxLength = 10;
             txtdniUsuario.MaxLength = 10;
+
+            string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LoguinIEFI.accdb");
+            if (!File.Exists(ruta))
+            {
+                MessageBox.Show("No se encontró la base de datos en la carpeta de ejecución.\nVerificá que esté en 'bin\\Debug'.");
+                return;
+            }
+
         }
 
         private void Loguin_Load(object sender, EventArgs e)
         {
             try
             {
-
                 nuevaConeccion.Open();
                 nuevaConeccion.Close();
                 stlEstadoConeccion.Text = "Conectado";
@@ -51,6 +62,43 @@ namespace pryPerezIEFI
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
+
+
+            string dni = txtdniUsuario.Text.Trim();
+            string contra = txtContraseña.Text.Trim();
+
+            if (string.IsNullOrEmpty(dni) || string.IsNullOrEmpty(contra))
+            {
+                MessageBox.Show("Ingrese un Usuario y Contraseña válidos.");
+                return;
+            }
+
+            Usuario usuario = new Usuario();
+
+            if (usuario.ValidarLogin(dni, contra))
+            {
+                // Buscar nombre del usuario
+                string nombre = usuario.ObtenerNombrePorDni(dni);
+
+                // Guardar en SesionUsuario
+                
+                SesionUsuario.IdEmpleado = dni;
+                SesionUsuario.NombreUsuario = nombre;
+                SesionUsuario.HoraInicioSesion = DateTime.Now;
+
+                MessageBox.Show($"Bienvenido al sistema, {nombre}", "USUARIO AUTORIZADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                frmMenuPrincipal menu = new frmMenuPrincipal();
+                this.Hide();
+                menu.Show();
+            }
+            else
+            {
+                MessageBox.Show("ERROR : CONTRASEÑA INCORRECTA");
+                borrartxt();
+            }
+
+            /*
             string contra = txtContraseña.Text;
             string usua = txtdniUsuario.Text;
             if (contra == @"""Ingrese su contraseña""" || usua == @"""Ingrese su DNI""" || contra == "" || usua == "")
@@ -108,6 +156,7 @@ namespace pryPerezIEFI
                     MessageBox.Show(error);
                 }
             }
+            */
         }
 
         private void txtdniUsuario_KeyPress_1(object sender, KeyPressEventArgs e)
@@ -126,6 +175,8 @@ namespace pryPerezIEFI
         private void txtContraseña_Click(object sender, EventArgs e)
         {
             txtContraseña.Text = "";
+            //PasswordPropertyTextAttribute passwordProperty = new PasswordPropertyTextAttribute(true);
+            
         }
 
         private void Loguin_Click(object sender, EventArgs e)
@@ -145,6 +196,27 @@ namespace pryPerezIEFI
         private void lblTitulo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtdniUsuario_TextChanged(object sender, EventArgs e)
+        {
+            txtContraseña.ForeColor = Color.Black;
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            txtContraseña.UseSystemPasswordChar = true; // Esto oculta el texto ingresado
+            
+            if (txtContraseña.Text != @"""Ingrese su contraseña""") //esto verifica que el texto no sea el predeterminado
+            {
+                txtContraseña.ForeColor = Color.Black;
+                //txtContraseña.Text = "";
+            }
         }
     }
 }

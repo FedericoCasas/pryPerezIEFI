@@ -20,6 +20,8 @@ namespace pryPerezIEFI
         }
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            FormBorderStyle = FormBorderStyle.None;
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -27,14 +29,10 @@ namespace pryPerezIEFI
             MessageBox.Show("EVENTO CLOSING DISPARADO");
             try
             {
-                int dni;
-                if (!int.TryParse(frmLoguin.dniUsuarioGlobal, out dni))
-                {
-                    MessageBox.Show("DNI no es un número válido.");
-                    return;
-                }
+                string dni = SesionUsuario.IdEmpleado;
 
-                DateTime fechaInicio = frmLoguin.horaInicioSesion;
+
+                DateTime fechaInicio = SesionUsuario.HoraInicioSesion; //frmLoguin.horaInicioSesion;
                 DateTime fechaCierre = DateTime.Now;
 
                 MessageBox.Show($"INSERTANDO:\nDNI: {dni}\nInicio: {fechaInicio}\nCierre: {fechaCierre}");
@@ -43,7 +41,7 @@ namespace pryPerezIEFI
                 {
                     conn.Open();
 
-                    string query = "INSERT INTO Sesiones (DniUsuario, FechaDeInicio, FechaDeCierre) VALUES (?, ?, ?)";
+                    string query = "INSERT INTO Sesiones (IdEmpleado, FechaDeInicio, FechaDeCierre) VALUES (?, ?, ?)";
                     using (OleDbCommand cmd = new OleDbCommand(query, conn))
                     {
                         cmd.Parameters.Add("@dni", OleDbType.Integer).Value = dni;
@@ -58,8 +56,6 @@ namespace pryPerezIEFI
 
                     }
                 }
-
-                
             }
             catch (Exception ex)
             {
@@ -86,11 +82,6 @@ namespace pryPerezIEFI
             frmStock frmStock = new frmStock();
             //this.Hide();
             frmStock.ShowDialog();
-
-
-
-
-
         }
 
         private void auditoriaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,6 +96,31 @@ namespace pryPerezIEFI
             frmAdministrador frmAdministrador = new frmAdministrador();
 
             frmAdministrador.ShowDialog();
+        }
+
+        private void nuevaTareaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTareaNueva frmTareaNueva = new frmTareaNueva();
+
+            frmTareaNueva.ShowDialog();
+        }
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVerTareas frmVerTareas = new frmVerTareas();
+            frmVerTareas.ShowDialog();
+        }
+
+        private void modificarTareasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModificarTareas frmModificarTareas = new frmModificarTareas();
+            frmModificarTareas.ShowDialog();
+        }
+
+        private void reclamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReclamos frmReclamos = new frmReclamos();
+            frmReclamos.ShowDialog();
         }
     }
 }

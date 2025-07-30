@@ -30,49 +30,53 @@
         {
             this.dgvAuditoria = new System.Windows.Forms.DataGridView();
             this.lblAuditoria = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvAuditoria
             // 
             this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuditoria.Location = new System.Drawing.Point(21, 104);
+            this.dgvAuditoria.Location = new System.Drawing.Point(17, 104);
             this.dgvAuditoria.Name = "dgvAuditoria";
             this.dgvAuditoria.RowHeadersWidth = 51;
             this.dgvAuditoria.RowTemplate.Height = 24;
-            this.dgvAuditoria.Size = new System.Drawing.Size(888, 456);
+            this.dgvAuditoria.Size = new System.Drawing.Size(1330, 732);
             this.dgvAuditoria.TabIndex = 0;
             // 
             // lblAuditoria
             // 
             this.lblAuditoria.AutoSize = true;
-            this.lblAuditoria.BackColor = System.Drawing.Color.Lavender;
+            this.lblAuditoria.BackColor = System.Drawing.Color.SlateBlue;
             this.lblAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F);
-            this.lblAuditoria.Location = new System.Drawing.Point(265, 30);
+            this.lblAuditoria.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblAuditoria.Location = new System.Drawing.Point(501, 30);
             this.lblAuditoria.Name = "lblAuditoria";
             this.lblAuditoria.Size = new System.Drawing.Size(381, 42);
             this.lblAuditoria.TabIndex = 1;
             this.lblAuditoria.Text = "Auditoria De Usuarios";
             // 
-            // btnVolver
+            // btnCancelar
             // 
-            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(807, 23);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(102, 69);
-            this.btnVolver.TabIndex = 19;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.Location = new System.Drawing.Point(1202, 30);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(145, 49);
+            this.btnCancelar.TabIndex = 38;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmAuditoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(932, 572);
-            this.Controls.Add(this.btnVolver);
+            this.ClientSize = new System.Drawing.Size(1363, 865);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblAuditoria);
             this.Controls.Add(this.dgvAuditoria);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -90,6 +94,6 @@
 
         private System.Windows.Forms.DataGridView dgvAuditoria;
         private System.Windows.Forms.Label lblAuditoria;
-        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
